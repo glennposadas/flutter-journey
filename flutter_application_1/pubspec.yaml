@@ -21,3 +21,5 @@ flutter:
     - family: IndieFlower
       fonts:
         - asset: fonts/IndieFlower-Regular.ttf
+  assets:
+    - assets/
