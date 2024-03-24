@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
           // ),
           Row(
             children: [
-              Container(
+              Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
@@ -37,6 +37,13 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
+              Expanded(
+                flex: 5,
+                child: Container(
+                  color: Colors.cyan,
+                  child: const Text('Expanded'),
+                ),
+              )
             ],
           ),
           Center(
