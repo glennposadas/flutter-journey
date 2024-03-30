@@ -18,12 +18,21 @@ class QuoteList extends StatefulWidget {
 
 class _QuoteListState extends State<QuoteList> {
 
-  List<Quote> quotes =
+  List<Quote> quotes = [
     Quote(text: "Hello, world!", author: "Gavin."),
     Quote(text: "Let's freakin' go!", author: "Adam"),
     Quote(text: "I love you guys.", author: "Diana"),
     Quote(text: "I'm tired", author: "Glenn")
   ];
+
+  // Widget getQuoteCard(Quote quote) {
+  //   return const Card(
+  //     margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
+  //     child: Column(
+  // PlaceHolder()
+  // ),
+  //   )
+  // }
 
   @override
   Widget build(BuildContext context) {
