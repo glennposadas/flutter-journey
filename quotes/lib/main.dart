@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:quotes/quote.dart';
 
 void main() {
@@ -16,15 +17,29 @@ class _QuoteListState extends State<QuoteList> {
   List<Quote> quotes = [
     Quote(text: "Hello, world!", author: "Gavin."),
     Quote(text: "Let's freakin' go!", author: "Adam"),
-    Quote(text: "I love you guys.", author: "Diana"),
+    Quote(text: "I love you guys.", author: "Diana."),
     Quote(text: "I'm tired", author: "Glenn")
   ];
 
   Widget getQuoteCard(Quote quote) {
     return Card(
-      margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
-      child: Column(
-        children: [Text(quote.text), Text(quote.author)],
+      margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              quote.text,
+              style: const TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              quote.author,
+              style: const TextStyle(fontSize: 12),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -41,10 +56,8 @@ class _QuoteListState extends State<QuoteList> {
         titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
         backgroundColor: Colors.redAccent,
       ),
-      body: Column(
-          children: quotes
-              .map((quote) => Text("${quote.text} - ${quote.author}"))
-              .toList()),
+      body:
+          Column(children: quotes.map((quote) => getQuoteCard(quote)).toList()),
     );
   }
 }
